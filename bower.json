@@ -1,0 +1,13 @@
+{
+  "name": "viralstyle-widget",
+  "description": "jQuery plugin to embed a Viralstyle campaign on your own webpage.",
+  "main": "dist/viralstyle.jquery.js",
+  "authors": [
+    "Viralstyle"
+  ],
+  "homepage": "https://github.com/viralstyle/viralstyle-widget",
+  "private": true,
+  "dependencies": {
+    "jquery": "~3.0"
+  }
+}

@@ -3,6 +3,8 @@ The Viralstyle Embedded Campaign Widget is the official way to include your Vira
 
 Installing and using the widget requires a basic knowledge of HTML and Javascript.
 
+If you’re using Wordpress, we’ve included [a few notes which may be helpful](#notes-for-wordpress-users) on using the Viralstyle jQuery plugin on a Wordpress site.
+
 ## Installation
 Embedding a Viralstyle campaign on your own webpage is a two step process. You must first include the jQuery library and Viralstyle jQuery plugin on your page, then use the plugin to create the widget. Both will be explained in greater depth below.
 
@@ -40,6 +42,7 @@ Once the Viralstyle plugin is loaded on your page, you can begin embedding campa
 **Important:** The element you pass to the Viralstyle plugin must exist *before* the plugin is called.
 
 ```html
+<div id="widget"></div>
 <script type="text/javascript">
   $(document).ready(function() {
     $('#widget').viralstyle({
@@ -84,3 +87,16 @@ e.g. `viralstyle.com/test-client/test-campaign#pid=1`
 `logo` is optional and can be any valid full URL of an image you wish to display as your logo. If omitted, the Viralstyle logo will be displayed instead.
 
 **Important:** There are no hard restrictions on the dimensions of your custom logo, but all logos will be proportionally scaled to a height of 85 pixels regardless of their dimensions and the sales flow has a maximum width of 600 pixels. Given these restraints, an ideal logo size would be 450px by 85px, or 900px by 170px for HiDPI and Retina displays.
+
+## Notes for Wordpress Users
+Even when embedding on a Wordpress site, usage of this plugin still requires a basic knowledge of HTML and Javascript. You’ll also need to feel comfortable editing your Wordpress theme.
+
+Fortunately, Wordpress comes with jQuery out of the box. If you’re using a theme which came with Wordpress, or one of the themes from the official Wordpress website, it’s almost certainly already loaded on each page of your site.
+
+If jQuery isn’t being included on your site, the site “Digging into Wordpress” has [clear instructions on the proper way to include jQuery](https://digwp.com/2009/06/including-jquery-in-wordpress-the-right-way/) again.
+
+Once jQuery is working on your own Wordpress site, follow the [instructions on the official Wordpress website](https://codex.wordpress.org/Using_Javascript) to include and use our own plugin.
+
+**Important:** Always include the Viralstyle jQuery plugin according to the instructions under the heading “[JavaScript in Template Files](https://codex.wordpress.org/Using_Javascript#JavaScript_in_Template_Files),” **not** the instructions under the heading “[JavaScript in Posts](https://codex.wordpress.org/Using_Javascript#JavaScript_in_Posts).”
+
+If you want to embed a campaign in a post, [include the Viralstyle plugin library](#installing-the-viralstyle-jquery-plugin) according to the “[JavaScript in Template Files](https://codex.wordpress.org/Using_Javascript#JavaScript_in_Template_Files)” instructions, and then feel free to follow the [usage](#usage) instructions in conjunction with the “[JavaScript in Posts](https://codex.wordpress.org/Using_Javascript#JavaScript_in_Posts)” section.

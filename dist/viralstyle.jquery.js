@@ -10,6 +10,7 @@
     var data = e.originalEvent.data.split(':');
     if (data[0] == 'open-vs-modal') {
       callVSModal(data[1]);
+      window.scrollTo(0, 30);
     }
 
     if (data[0] == 'close-vs-modal') {

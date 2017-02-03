@@ -97,7 +97,7 @@ $('#widget')
     user: 'test-client',
     campaign: 'sales-flow-test-cart',
     product: 6
-  }, 'https://viral-tees.app')
+  })
 
   // Attach the Following Events to the jQuery Selector
   .on('vs:widgetOpened', function () {

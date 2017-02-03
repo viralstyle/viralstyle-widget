@@ -8,22 +8,31 @@
 
   $(window).on('message', function (e) {
     var data = e.originalEvent.data.split(':');
-    if (data[0] == 'open-vs-modal') {
-      callVSModal(data[1]);
-      window.scrollTo(0, 30);
-    }
-
-    if (data[0] == 'close-vs-modal') {
-      $('#vs-flow-background, #vs-flow-container').css('display', 'none');
-    }
-
-    if (data[0] == 'resize-vs-widget') {
-      $('#vsw-' + data[2]).css('height', data[1] + 'px');
-    }
-
-    if (data[0] == 'resize-vs-flow') {
-      $('#vs-flow-container').css('min-height', data[1] + 'px')
-        .find('#vs-flow').css('height', data[1] + 'px');
+    switch (data[0]) {
+      case 'open-vs-modal':
+        callVSModal(data[1]);
+        window.scrollTo(0, 30);
+        break;
+      case 'close-vs-modal':
+        $('#vs-flow-background, #vs-flow-container').css('display', 'none');
+        $('#vsw-' + data[1]).trigger('vs:widgetClosed');
+        break;
+      case 'resize-vs-widget':
+        $('#vsw-' + data[2]).css('height', data[1] + 'px');
+        break;
+      case 'resize-vs-flow':
+        $('#vs-flow-container').css('min-height', data[1] + 'px')
+          .find('#vs-flow').css('height', data[1] + 'px');
+        break;
+      case 'vs-modal-open-complete':
+        $('#vsw-' + data[1]).trigger('vs:widgetOpened');
+        break;
+      case 'vs-start-checkout':
+        $('#vsw-' + data[1]).trigger('vs:startCheckout', [parseInt(data[2], 10), data[3], parseFloat(data[4]), data[5]]); // qty, product, price, currency
+        break;
+      case 'vs-purchase':
+        $('#vsw-' + data[1]).trigger('vs:purchase', [parseInt(data[2], 10), parseFloat(data[3]), data[4], data[5]]); // qty, price, currency, orderNumber
+        break;
     }
   });
 

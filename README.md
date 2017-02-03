@@ -88,6 +88,33 @@ e.g. `viralstyle.com/test-client/test-campaign#pid=1`
 
 **Important:** There are no hard restrictions on the dimensions of your custom logo, but all logos will be proportionally scaled to a height of 85 pixels regardless of their dimensions and the sales flow has a maximum width of 600 pixels. Given these restraints, an ideal logo size would be 450px by 85px, or 900px by 170px for HiDPI and Retina displays.
 
+### Event Callbacks
+The widget provides a few optional callbacks allowing you to tie customers' interactions with the widget back into your own analytics and tracking tools.
+
+```javascript
+$('#widget')
+  .viralstyle({ // Initialize the Widget per the Instructions Above
+    user: 'test-client',
+    campaign: 'sales-flow-test-cart',
+    product: 6
+  }, 'https://viral-tees.app')
+
+  // Attach the Following Events to the jQuery Selector
+  .on('vs:widgetOpened', function () {
+    console.log('The widget opened!');
+  })
+  .on('vs:widgetClosed', function () {
+    console.log('The widget closed... :(');
+  })
+  .on('vs:startCheckout', function (e, qty, product, price, currency) {
+    console.log('The customer started checkout!');
+  })
+  .on('vs:purchase', function (e, qty, price, currency, orderNumber) {
+    console.log('The customer completed a purchase!');
+  })
+;
+```
+
 ## Notes for Wordpress Users
 Even when embedding on a Wordpress site, usage of this plugin still requires a basic knowledge of HTML and Javascript. You’ll also need to feel comfortable editing your Wordpress theme.
 
